@@ -5,7 +5,7 @@ const User = require('../Models/User');
 // Store random data into database
 router.post("/createUser", async (req, res) => {
     try {
-        for (let i = 1; i <= 100000; i++) {
+        for (let i = 1; i <= 10000; i++) {
             let name = ['Sohan', 'Mohan', 'Monita', 'Pooja', 'Rekha', 'Nandani', 'Suman', 'Ajay', 'Mohit', 'Babita', 'Chandan', 'Divya', 'Diwakar', 'Ganga', 'Harish'];
             let age = Math.floor(Math.random() * 55) + 15;
             let mobile =
@@ -31,12 +31,12 @@ router.post("/createUser", async (req, res) => {
 });
 
 // get all data from database
-router.get("/getUsers",async (req,res)=>{
-    try{
-        const users = await User.find()
-        res.status(200).json({users});
-    }catch(err){
-        res.status(500).json({option:false, message:"Unable to fetch record"})
+router.get("/getUsers", async (req, res) => {
+    try {
+        const users = await User.find({});
+        res.status(200).json({ users });
+    } catch (err) {
+        res.status(500).json({ option: false, message: "Unable to fetch record" })
     }
 });
 
