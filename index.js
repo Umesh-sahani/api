@@ -21,6 +21,10 @@ connectToMongo(db_uri);
 // Available routes
 app.use("/api/user", require("./routes/user"));
 
+app.get("/" ,(req,res)=>{
+    res.send("API is running");
+})
+
 app.listen(port,()=>{
     console.log(`Server running on http://localhost:${port}`);
 })
